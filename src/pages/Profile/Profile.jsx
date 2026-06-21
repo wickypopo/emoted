@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Profile() {
   return (
     <div className="dark">
-      <main className="min-h-screen p-8 pt-20 flex flex-col gap-8 bg-linear-[30deg] from-bg-primary via-bg-secondary to-bg-primary text-label-primary">
+      <main className="min-h-screen p-4 pt-20 flex flex-col gap-8 bg-linear-[30deg] from-bg-primary via-bg-secondary to-bg-primary text-label-primary">
         <h1 className="text-4xl font-semibold">Profile</h1>
         <Link
           to="/"
