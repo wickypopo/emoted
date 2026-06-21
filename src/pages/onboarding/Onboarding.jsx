@@ -11,7 +11,7 @@ export default function Onboarding() {
 
   return (
     <div className="dark">
-      <main className="min-h-dvh p-4 py-15 flex flex-col gap-8 bg-linear-[30deg] from-bg-primary via-bg-secondary to-bg-primary">
+      <main className="min-h-[100dvh] p-4 py-15 flex flex-col gap-8 bg-linear-[30deg] from-bg-primary via-bg-secondary to-bg-primary">
         <Start step={step} setStep={setStep} />
         <Frage
           step={step}
