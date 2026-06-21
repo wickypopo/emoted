@@ -40,21 +40,27 @@ export default function Share({ step, setStep, question, setQuestion }) {
             </div>
           </div>
           <div className="flex flex-col gap-2 fixed bottom-8 left-8 right-8">
-            <button className="bg-white p-4 w-full squircle rounded-4xl text-xl font-medium">
-              Bei Whatsapp teilen
-            </button>
-            <button className="bg-bg-tertiary p-4 w-full squircle rounded-4xl text-xl font-medium text-white">
-              Instagram Story
-            </button>
-            <button className="bg-bg-tertiary p-4 w-full squircle rounded-4xl text-xl font-medium text-white">
-              Instagram Story
-            </button>
             <button
               onClick={() => navigate("/profile")}
-              className="text-label-secondary w-full text-lg underline pt-4"
+              className="bg-white p-4 w-full squircle rounded-4xl text-xl font-medium"
             >
-              Überspringen
+              Bei Whatsapp teilen
             </button>
+
+            <div className="flex gap-2">
+              <button
+                onClick={() => navigate("/profile")}
+                className="bg-bg-tertiary p-4 w-full squircle rounded-4xl text-xl font-medium text-white"
+              >
+                Instagram
+              </button>
+              <button
+                onClick={() => navigate("/profile")}
+                className="bg-bg-tertiary p-4 w-full squircle rounded-4xl text-xl font-medium text-white"
+              >
+                Instagram
+              </button>
+            </div>
           </div>
         </div>
       ) : null}
