@@ -11,7 +11,7 @@ export default function Onboarding() {
 
   return (
     <div className="dark">
-      <main className=" min-h-screen p-4 pt-10 flex flex-col gap-8 bg-linear-[30deg] from-bg-primary via-bg-secondary to-bg-primary">
+      <main className="h-dvh min-h-screen p-4 pt-10 flex flex-col gap-8 bg-linear-[30deg] from-bg-primary via-bg-secondary to-bg-primary">
         <Start step={step} setStep={setStep} />
         <Frage
           step={step}
