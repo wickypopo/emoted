@@ -1,5 +1,5 @@
 import { FluentEmoji } from "emoted-fluent-emoji";
-import Keyboard from "../../../components/Keyboard";
+import Keyboard from "../../../components/Keyboard-dep";
 export default function Signup({ step, setStep }) {
   return (
     <>

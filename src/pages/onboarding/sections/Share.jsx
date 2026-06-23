@@ -1,5 +1,5 @@
 import { FluentEmoji } from "emoted-fluent-emoji";
-import Keyboard from "../../../components/Keyboard";
+import Keyboard from "../../../components/Keyboard-dep";
 import { useNavigate } from "react-router-dom";
 export default function Share({ step, setStep, question, setQuestion }) {
   const navigate = useNavigate();

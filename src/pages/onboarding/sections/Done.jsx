@@ -1,6 +1,10 @@
 import { FluentEmoji } from "emoted-fluent-emoji";
-import Keyboard from "../../../components/Keyboard";
+import { Plus } from "lucide-react";
+import { useKeyboard } from "../../../utils/useKeyboard";
+import { motion } from "framer-motion";
+
 export default function Done({ step, setStep, question, setQuestion }) {
+  const { openKeyboard, toggleKeyboard } = useKeyboard();
   return (
     <>
       {step === "done" ? (
@@ -35,9 +39,21 @@ export default function Done({ step, setStep, question, setQuestion }) {
                 <FluentEmoji emoji="🤯" className="size-12" />
               </div>
 
-              <div className="absolute bottom-0 left-4 translate-y-1/2 w-full">
-                <Keyboard />
-              </div>
+              <motion.div
+                initial={{}}
+                animate={
+                  openKeyboard
+                    ? { scale: 0.9, opacity: 0 }
+                    : { scale: 1, opacity: 1 }
+                }
+                transition={{ duration: 0.1 }}
+                className="absolute bottom-0 left-4 translate-y-1/2 bg-label-primary squircle rounded-4xl p-2"
+              >
+                <Plus
+                  onClick={() => toggleKeyboard()}
+                  className="size-8 text-bg-primary"
+                />
+              </motion.div>
             </div>
           </div>
           <div className="flex gap-2 fixed bottom-8 left-8 right-8">

@@ -7,7 +7,7 @@ export default function Start({ step, setStep }) {
         <div className="flex flex-col justify-end flex-grow-1 gap-12">
           <div className="flex flex-col gap-4">
             <div className="flex">
-              <FluentEmoji emoji="🥺" animated className="size-25 -ml-5" />
+              <FluentEmoji emoji="🥺" animated className="size-25 -ml-1" />
               <FluentEmoji emoji="🤡" animated className="size-25 -ml-5" />
               <FluentEmoji emoji="😳" animated className="size-25 -ml-5" />
               <FluentEmoji emoji="🤯" animated className="size-25 -ml-5" />

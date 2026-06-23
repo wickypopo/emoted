@@ -1,5 +1,5 @@
 import {
-  Plus,
+  X,
   Clock,
   Smile,
   Dog,
@@ -10,89 +10,225 @@ import {
   Heart,
   Flag,
 } from "lucide-react";
-import { useState } from "react";
-import { motion } from "framer-motion";
 import { FluentEmoji } from "emoted-fluent-emoji";
+import { useKeyboard } from "../utils/useKeyboard";
+import { motion } from "framer-motion";
 
 export default function Keyboard() {
-  const [open, setOpen] = useState(false);
-
+  const { openKeyboard, toggleKeyboard, selectedEmojiCallback } = useKeyboard();
   const emojis = [
-    "😂",
-    "😭",
-    "🥺",
-    "😳",
-    "😬",
-    "🤡",
-    "💀",
-    "🔥",
-    "👀",
-    "🤯",
-    "😮‍💨",
-    "🫠",
-    "😎",
-    "😈",
-    "🤪",
+    // face-smiling
+    "😀",
+    "😃",
+    "😄",
+    "😁",
+    "😆",
+    "😅",
     "🤣",
-    "😏",
+    "😂",
+    "🙂",
     "🙃",
+    "🫠",
+    "😉",
+    "😊",
     "😇",
-    "🥴",
-    "💅",
-    "✨",
-    "🫶",
-    "💘",
-    "❤️‍🔥",
-    "🧠",
-    "🫡",
-    "🤝",
-    "🫣",
+
+    // face-affection
+    "🥰",
+    "😍",
+    "🤩",
+    "😘",
+    "😗",
+    "☺️",
+    "😚",
+    "😙",
+    "🥲",
+
+    // face-tongue
+    "😋",
+    "😛",
+    "😜",
+    "🤪",
+    "😝",
+    "🤑",
+
+    // face-hand
+    "🤗",
     "🤭",
-    "😤",
-    "😡",
-    "🥶",
-    "😵‍💫",
-    "🤓",
+    "🫢",
+    "🫣",
+    "🤫",
+    "🤔",
+    "🫡",
+
+    // face-neutral-skeptical
+    "🤐",
+    "🤨",
+    "😐",
+    "😑",
+    "😶",
     "🫥",
     "😶‍🌫️",
-    "🤌",
-    "🙏",
+    "😏",
+    "😒",
+    "🙄",
+    "😬",
+    "😮‍💨",
+    "🤥",
+    "🫨",
+
+    // face-sleepy
+    "😌",
+    "😔",
+    "😪",
+    "🤤",
+    "😴",
+
+    // face-unwell
+    "😷",
+    "🤒",
+    "🤕",
+    "🤢",
+    "🤮",
+    "🤧",
+    "🥵",
+    "🥶",
+    "🥴",
+    "😵",
+    "😵‍💫",
+    "🤯",
+
+    // face-hat
+    "🤠",
+    "🥳",
+    "🥸",
+
+    // face-glasses
+    "😎",
+    "🤓",
+    "🧐",
+
+    // face-concerned
+    "😕",
+    "🫤",
+    "😟",
+    "🙁",
+    "☹️",
+    "😮",
+    "😯",
+    "😲",
+    "😳",
+    "🥺",
+    "🥹",
+    "😦",
+    "😧",
+    "😨",
+    "😰",
+    "😥",
+    "😢",
+    "😭",
+    "😱",
+    "😖",
+    "😣",
+    "😞",
+    "😓",
+    "😩",
+    "😫",
+    "🥱",
+
+    // face-negative
+    "😤",
+    "😡",
+    "😠",
+    "🤬",
+    "😈",
+    "👿",
+    "💀",
+    "☠️",
+
+    // face-costume
+    "💩",
+    "🤡",
+    "👹",
+    "👺",
+    "👻",
+    "👽",
+    "👾",
+    "🤖",
+
+    // cat-face
+    "😺",
+    "😸",
+    "😹",
+    "😻",
+    "😼",
+    "😽",
+    "🙀",
+    "😿",
+    "😾",
+
+    // monkey-face
+    "🙈",
+    "🙉",
+    "🙊",
+
+    // emotion
+    "💋",
+    "💌",
+    "💘",
+    "💝",
+    "💖",
+    "💗",
+    "💓",
+    "💞",
+    "💕",
+    "💟",
+    "❣️",
     "💔",
-    "🚩",
-    "⚡",
-    "🌟",
-    "🎭",
-    "🕺",
-    "🧍",
-    "🐸",
-    "🦋",
-    "🍓",
-    "🪩",
+    "❤️‍🔥",
+    "❤️‍🩹",
+    "❤️",
+    "🩷",
+    "🧡",
+    "💛",
+    "💚",
+    "💙",
+    "🩵",
+    "💜",
+    "🤎",
+    "🖤",
+    "🩶",
+    "🤍",
+    "💯",
+    "💢",
+    "💥",
+    "💫",
+    "💦",
+    "💨",
+    "🕳️",
+    "💬",
+    "👁️‍🗨️",
+    "🗨️",
+    "🗯️",
+    "💭",
+    "💤",
   ];
-
   return (
-    <motion.div
-      animate={{
-        width: open ? "90%" : "50px",
-        height: open ? "330px" : "50px",
-        position: "fixed",
-      }}
-      className="absolute -top-6 bg-system-blue text-white rounded-4xl squircle flex flex-col pl-[9px] pt-[9px] overflow-hidden"
-    >
-      <motion.button
-        onClick={() => setOpen((prev) => !prev)}
-        animate={{
-          rotate: open ? "45deg" : "0deg",
-        }}
-        className="size-8 flex items-center justify-center shrink-0"
+    <>
+      <motion.div
+        initial={{ pointerEvents: "none", opacity: 0, y: 20 }}
+        animate={
+          openKeyboard
+            ? { pointerEvents: "all", opacity: 1, y: 0 }
+            : { pointerEvents: "none", opacity: 0, y: 20 }
+        }
+        transition={{ duration: 0.1 }}
+        className="absolute bottom-0 left-0 right-0 bg-bg-primary pt-4 rounded-t-4xl squircle"
       >
-        <Plus className="w-full" />
-      </motion.button>
-
-      {open && (
-        <>
+        <div>
+          <X onClick={() => toggleKeyboard()} className="pl-4 size-12" />
           <div className="flex-1 overflow-x-auto overflow-y-hidden no-scrollbar">
-            <div className="grid grid-rows-3 grid-flow-col auto-cols-[60px] gap-4">
+            <div className="grid grid-rows-4 grid-flow-col auto-cols-[60px] gap-4 pb-4 pl-4">
               {emojis.map((emoji, index) => (
                 <button
                   key={`${emoji}-${index}`}
@@ -104,7 +240,7 @@ export default function Keyboard() {
             </div>
           </div>
 
-          <div className="flex gap-4 shrink-0 overflow-x-auto overflow-y-hidden whitespace-nowrap py-3 no-scrollbar">
+          <div className="flex gap-4 shrink-0 overflow-x-auto overflow-y-hidden justify-between py-3 no-scrollbar px-4">
             <span className="text-xl shrink-0">
               <Clock />
             </span>
@@ -133,8 +269,8 @@ export default function Keyboard() {
               <Flag />
             </span>
           </div>
-        </>
-      )}
-    </motion.div>
+        </div>
+      </motion.div>
+    </>
   );
 }
